@@ -3,6 +3,8 @@ from uuid import uuid4
 
 from detector import analyze_with_groq
 from audit import write_log, load_log
+from heuristics import calculate_stylometric_score
+from confidence import combine_scores, classify_from_score
 
 
 app = Flask(__name__)
@@ -33,19 +35,31 @@ def submit():
     content_id = str(uuid4())
 
     llm_result = analyze_with_groq(text)
+    stylometric_result = calculate_stylometric_score(text)
+
+    combined_score = combine_scores(
+        llm_score=llm_result["score"],
+        stylometric_score=stylometric_result["score"]
+    )
+
+    attribution = classify_from_score(combined_score)
 
     response = {
         "content_id": content_id,
         "creator_id": creator_id,
-        "attribution": llm_result["attribution"],
-        "confidence": llm_result["score"],
+        "attribution": attribution,
+        "confidence": combined_score,
         "label": "Placeholder label. Full transparency labels will be added in Milestone 5.",
         "signals": {
             "llm_score": llm_result["score"],
-            "llm_reason": llm_result["reason"]
+            "llm_reason": llm_result["reason"],
+            "stylometric_score": stylometric_result["score"],
+            "stylometric_metrics": stylometric_result["metrics"]
         },
         "status": "classified"
     }
+
+   
 
     log_entry = {
         "event_type": "submission",
@@ -56,6 +70,8 @@ def submit():
         "confidence": response["confidence"],
         "llm_score": llm_result["score"],
         "llm_reason": llm_result["reason"],
+        "stylometric_score": stylometric_result["score"],
+        "stylometric_metrics": stylometric_result["metrics"],
         "status": "classified"
     }
 

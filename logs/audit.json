@@ -10,5 +10,43 @@
     "llm_reason": "poetic language and descriptive phrase",
     "status": "classified",
     "timestamp": "2026-06-28T20:07:08.963242+00:00"
+  },
+  {
+    "event_type": "submission",
+    "content_id": "e53651c6-be90-4e48-a7fd-2eca2eae2b44",
+    "creator_id": "test-user-ai",
+    "text_preview": "Artificial intelligence represents a transformative paradigm shift in modern society. It is important to note that while",
+    "attribution": "likely_ai",
+    "confidence": 0.724,
+    "llm_score": 0.8,
+    "llm_reason": "overly formal language and generic phrases",
+    "stylometric_score": 0.61,
+    "stylometric_metrics": {
+      "avg_sentence_length": 14.333,
+      "sentence_length_variance": 29.556,
+      "type_token_ratio": 0.884,
+      "punctuation_density": 0.016
+    },
+    "status": "classified",
+    "timestamp": "2026-06-28T20:30:46.899061+00:00"
+  },
+  {
+    "event_type": "submission",
+    "content_id": "5f414ecb-06fe-4e57-9b36-f6d4deccebb8",
+    "creator_id": "test-user-human",
+    "text_preview": "ok so i finally tried that new ramen place downtown and honestly? underwhelming. the broth was fine but they put WAY too",
+    "attribution": "likely_human",
+    "confidence": 0.292,
+    "llm_score": 0.2,
+    "llm_reason": "informal language and personal opinion",
+    "stylometric_score": 0.43,
+    "stylometric_metrics": {
+      "avg_sentence_length": 11.0,
+      "sentence_length_variance": 45.2,
+      "type_token_ratio": 0.873,
+      "punctuation_density": 0.014
+    },
+    "status": "classified",
+    "timestamp": "2026-06-28T20:30:59.488065+00:00"
   }
 ]
