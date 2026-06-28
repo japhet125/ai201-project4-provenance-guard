@@ -1,0 +1,14 @@
+[
+  {
+    "event_type": "submission",
+    "content_id": "9f9e2682-1b65-41ec-a6eb-8b56d18d20ee",
+    "creator_id": "test-user-1",
+    "text_preview": "The sun dipped below the horizon, painting the sky in amber and rose.",
+    "attribution": "likely_human",
+    "confidence": 0.2,
+    "llm_score": 0.2,
+    "llm_reason": "poetic language and descriptive phrase",
+    "status": "classified",
+    "timestamp": "2026-06-28T20:07:08.963242+00:00"
+  }
+]
